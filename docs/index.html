@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>vue-slug-input</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css"/>
+</head>
+<body>
+
+    <h1 class="tc">vue-slug-input</h1>
+
+    <div id="app" class="flex flex-row flex-wrap">
+
+        <div class="w-100 w-50-m w-third-l pa3 ba b--light-gray">
+
+            <h2 class="f5">&nbsp;</h2>
+
+            <label class="f6 b db mv2 tl">
+                Title
+                <input class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"
+                       type="text"
+                       v-model="title1">
+            </label>
+            <label class="f6 b db mv2 tl">
+                Emitted
+                <span class="normal">({{ slug1 }})</span>
+            </label>
+            <label class="f6 b db mv2 tl">
+                Slug
+                <slug-input :value="title1"
+                            @change="value => slug1 = value"
+                            class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"></slug-input>
+            </label>
+        </div>
+
+        <div class="w-100 w-50-m w-third-l pa3 ba b--light-gray">
+
+            <h2 class="f5">Custom slug function</h2>
+
+            <label class="f6 b db mv2 tl">
+                Title
+                <input type="text" class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100" v-model="title2">
+            </label>
+            <label class="f6 b db mv2 tl">
+                Emitted
+                <span class="normal">({{ slug2 }})</span>
+            </label>
+            <label class="f6 b db mv2 tl">
+                Slug
+                <slug-input :value="title2"
+                            @change="value => slug2 = value"
+                            :slugify="customSlugger"
+                            class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"></slug-input>
+            </label>
+        </div>
+
+        <div class="w-100 w-50-m w-third-l pa3 ba b--light-gray">
+
+            <h2 class="f5">Hidden input</h2>
+
+            <label class="f6 b db mv2 tl">
+                Title
+                <input type="text" class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100" v-model="title3">
+            </label>
+            <label class="f6 b db mv2 tl">
+                Emitted
+                <span class="normal">({{ slug3 }})</span>
+                <slug-input :value="title3"
+                            @change="value => slug3 = value"
+                            type="hidden"
+                            class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"></slug-input>
+            </label>
+        </div>
+
+        <div class="w-100 w-50-m w-third-l pa3 ba b--light-gray">
+
+            <h2 class="f5">Read only</h2>
+
+            <label class="f6 b db mv2 tl">
+                Emitted
+                <span class="normal">({{ slug4 }})</span>
+                <slug-input value="Pre filled"
+                            @change="value => slug4 = value"
+                            readonly
+                            class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"></slug-input>
+            </label>
+        </div>
+
+        <div class="w-100 w-50-m w-third-l pa3 ba b--light-gray">
+
+            <h2 class="f5">Slug user input</h2>
+
+            <label class="f6 b db mv2 tl">
+                Title
+                <input type="text" class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100" v-model="title5">
+            </label>
+
+            <label class="f6 b db mv2 tl">
+                Emitted
+                <span class="normal">({{ slug5 }})</span>
+                <slug-input :value="title5"
+                            @change="value => slug5 = value"
+                            slug-user-input
+                            class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"></slug-input>
+            </label>
+        </div>
+
+        <div class="w-100 w-50-m w-third-l pa3 ba b--light-gray">
+
+            <h2 class="f5">Resettable binding</h2>
+
+            <label class="f6 b db mv2 tl">
+                Title
+                <input class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"
+                       type="text"
+                       v-model="title6">
+            </label>
+            <label class="f6 b db mv2 tl">
+                Emitted
+                <span class="normal">({{ slug6 }})</span>
+            </label>
+            <label class="f6 b db mv2 tl">
+                Slug
+                <slug-input ref="sl"
+                            :value="title6"
+                            @change="value => slug6 = value"
+                            class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"></slug-input>
+            </label>
+            <button @click="$refs.sl.reset()">Reset</button>
+        </div>
+
+        <div class="w-100 w-50-m w-third-l pa3 ba b--light-gray">
+
+            <h2 class="f5">Reset when slug is empty</h2>
+
+            <label class="f6 b db mv2 tl">
+                Title
+                <input class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"
+                       type="text"
+                       v-model="title7">
+            </label>
+            <label class="f6 b db mv2 tl">
+                Emitted
+                <span class="normal">({{ slug7 }})</span>
+            </label>
+            <label class="f6 b db mv2 tl">
+                Slug
+                <slug-input :value="title7"
+                            @change="value => slug7 = value"
+                            reset-when-empty
+                            class="input-reset relative pa2 bg-white br1 ba b--black-20 w-100"></slug-input>
+            </label>
+        </div>
+
+    </div>
+
+    <script src="./build/app.js"></script>
+</body>
+</html>

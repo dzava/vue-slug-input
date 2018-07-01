@@ -1,6 +1,6 @@
 {
   "name": "vue-slug-input",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "An input that transforms strings to slugs",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",

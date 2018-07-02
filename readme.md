@@ -22,16 +22,16 @@ npm install vue-slug-input --save-dev
 
 Next you register the component,
 ```js
-import AsyncSearch from 'vue-asyncsearch';
+import SlugInput from 'vue-slug-input';
 
-Vue.use(AsyncSearch);
+Vue.use(SlugInput);
 ```
 
 you can also provide a function that will be used to transform the input.
 ```js
-import AsyncSearch from 'vue-asyncsearch';
+import SlugInput from 'vue-slug-input';
 
-Vue.use(AsyncSearch, (value) => value.toLowerCase());
+Vue.use(SlugInput, (value) => value.toLowerCase());
 ```
 
 
